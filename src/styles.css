@@ -3,3 +3,7 @@ button{
   margin: 0px;
   gap:0px;
 }
+
+.aboutTask{
+  display: none;
+}

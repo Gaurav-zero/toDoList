@@ -1,3 +1,4 @@
+const toDoList=[];
 class Todos{
     constructor(title){
         this.title= title;
@@ -16,5 +17,12 @@ class Todos{
     }
 }
 
+function addNewTask(title){
+    let newTask= new Todos(title);
+    toDoList.push(newTask);
+}
 
-export {Todos};
+
+
+
+export {Todos, toDoList, addNewTask};
