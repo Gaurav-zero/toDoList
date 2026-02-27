@@ -1,5 +1,6 @@
 import "./styles.css";
-import {Todos, toDoList, addNewTask,displayTasks} from "./todos.js";
+import {Todos, toDoList, addNewTask} from "./todos.js";
+import { displayTasks } from "./displayTasks.js";
 
 
 const f= document.querySelector("form");
