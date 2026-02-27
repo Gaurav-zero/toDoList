@@ -46,6 +46,10 @@ function displayTasks(){
         let cell4= row3.insertCell(0);
         let cell5= row3.insertCell(1);
 
+        let row4= table.insertRow();
+        let cell6= row4.insertCell(0);
+        let cell7= row4.insertCell(1);
+
         cell1.textContent= toDoList[i].title;
         let doneCheck= document.createElement("input");
         doneCheck.setAttribute("type", "checkbox");
@@ -59,6 +63,33 @@ function displayTasks(){
         cell4.textContent="";
         cell5.textContent= `Due-Date:- ${toDoList[i].dueDate}`;
 
+        let prioritySelector= document.createElement("select");
+        let option1= document.createElement("option");
+        let option2= document.createElement("option");
+        let option3= document.createElement("option");
+        let option4= document.createElement("option");
+
+        prioritySelector.setAttribute("name", "priority");
+        prioritySelector.setAttribute("id", "prioritySelector");
+
+        option1.textContent= "priority1";
+        option2.textContent= "priority2";
+        option3.textContent= "priority3";
+        option4.textContent= "priority4";
+
+        option1.setAttribute("value", "1");
+        option2.setAttribute("value", "2");
+        option3.setAttribute("value", "3");
+        option4.setAttribute("value", "4");
+
+        prioritySelector.appendChild(option1);
+        prioritySelector.appendChild(option2);
+        prioritySelector.appendChild(option3);
+        prioritySelector.appendChild(option4);
+
+        cell7.appendChild(prioritySelector);
+        cell6.textContent="";
+
         doneCheck.addEventListener("change", (e) =>{
             toDoList.splice(i,1);
             let thisRow1= doneCheck.parentNode.parentNode;
@@ -70,16 +101,6 @@ function displayTasks(){
             let thisRow3= cell5.parentNode;
             thisRow3.parentNode.removeChild(thisRow3);
         });
-
-        /**cell1.addEventListener("click", (e)=>{
-            while(cell1.firstChild){
-                cell1.removeChild(cell1.firstChild);
-            }
-            cell1.textContent= toDoList[i].title + "\n";
-            const descContainer= document.createElement("textarea");
-            descContainer.textContent= toDoList[i].description;
-            cell1.appendChild(descContainer);
-        });**/
     }
 }
 
