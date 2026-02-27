@@ -18,9 +18,15 @@ class Todos{
     }
 }
 
-function addNewTask(title){
+function addNewTask(title, desc){
     let newTask= new Todos(title);
+    newTask.setDescription(desc);
     toDoList.push(newTask);
+}
+
+function toggleDisplay(el){
+    if(el.style.display == "block") el.style.display= "none";
+    else el.style.display= "block";
 }
 
 function displayTasks(){
@@ -34,7 +40,7 @@ function displayTasks(){
         let cell0= row.insertCell(0);
         let cell1= row.insertCell(1);
 
-        cell1.textContent= toDoList[i].title;
+        cell1.textContent= toDoList[i].title + "\n";
         let doneCheck= document.createElement("input");
         doneCheck.setAttribute("type", "checkbox");
         cell0.appendChild(doneCheck);
@@ -43,6 +49,16 @@ function displayTasks(){
             toDoList.splice(i,1);
             let thisRow= doneCheck.parentNode.parentNode;
             thisRow.parentNode.removeChild(thisRow);
+        });
+
+        cell1.addEventListener("click", (e)=>{
+            while(cell1.firstChild){
+                cell1.removeChild(cell1.firstChild);
+            }
+            cell1.textContent= toDoList[i].title + "\n";
+            const descContainer= document.createElement("textarea");
+            descContainer.textContent= toDoList[i].description;
+            cell1.appendChild(descContainer);
         });
     }
 }
