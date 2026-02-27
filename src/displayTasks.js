@@ -1,5 +1,5 @@
 import { toDoList } from "./todos.js";
-import { changeColor } from "./changeColor.js";
+
 
 const table= document.querySelector("#table");
 
@@ -66,10 +66,6 @@ export function displayTasks(){
         cell7.appendChild(prioritySelector);
         cell6.textContent="";
 
-        prioritySelector.addEventListener("change", (e) =>{
-            changeColor(prioritySelector, doneCheck);
-        });
-
         doneCheck.addEventListener("change", (e) =>{
             toDoList.splice(i,1);
             let thisRow1= doneCheck.parentNode.parentNode;
@@ -80,6 +76,9 @@ export function displayTasks(){
 
             let thisRow3= cell5.parentNode;
             thisRow3.parentNode.removeChild(thisRow3);
+
+            let thisRow4= cell7.parentNode;
+            thisRow4.parentNode.removeChild(thisRow4);
         });
     }
 }

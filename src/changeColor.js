@@ -4,7 +4,7 @@ export function changeColor(prioritySelector, doneCheck){
     }
 
     if(prioritySelector.value == "2"){
-        doneCheck.style.backgroundColor= "orange";
+        doneCheck.style.accentColor= "orange";
     }
 
     if(prioritySelector.value == "3"){
