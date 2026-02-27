@@ -12,9 +12,8 @@ addBtn.addEventListener("click", (e)=>{
 
 f.addEventListener("submit", (e)=>{
     e.preventDefault();
-    console.log(toDoList[0]);
     addNewTask(title.value);
     title.value="";
     displayTasks();
-    console.log(toDoList[0]);
+    f.style.display="none";
 });
