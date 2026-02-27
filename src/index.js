@@ -1,5 +1,5 @@
 import "./styles.css";
-import {Todos, toDoList, addNewTask} from "./todos.js";
+import {Todos, toDoList, addNewTask,displayTasks} from "./todos.js";
 
 
 const f= document.querySelector("form");
@@ -13,7 +13,8 @@ addBtn.addEventListener("click", (e)=>{
 f.addEventListener("submit", (e)=>{
     e.preventDefault();
     console.log(toDoList[0]);
-    addNewTask(title);
+    addNewTask(title.value);
     title.value="";
+    displayTasks();
     console.log(toDoList[0]);
 });
