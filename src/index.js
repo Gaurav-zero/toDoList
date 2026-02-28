@@ -10,8 +10,15 @@ const addBtn= document.querySelector(".addBtn");
 const title= document.querySelector("#titleTask");
 const taskDesc= document.querySelector("#taskDesc");
 const taskDate= document.querySelector("#taskDate");
+const projectName= document.querySelector("#projectName");
+const projectForm= document.querySelector(".projectForm")
 
 addProjectBtn.addEventListener("click", (e)=>{
+    projectForm.style.display="block";      
+});
+
+projectForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
     let newAddBtn= document.createElement("button");
     newAddBtn.textContent= "AddTask";
 
@@ -19,13 +26,17 @@ addProjectBtn.addEventListener("click", (e)=>{
             f.style.display="block";
     });
 
-    let newProject= createProject("Hello");
-    newProject.appendChild(newAddBtn);    
+    let newProject= createProject(projectName.value);
+    newProject.appendChild(newAddBtn);  
+
+    projectForm.style.display= "none";
 });
 
+/** 
 addBtn.addEventListener("click", (e)=>{
     f.style.display="block";
 });
+
 
 f.addEventListener("submit", (e)=>{
         e.preventDefault();
@@ -39,3 +50,5 @@ f.addEventListener("submit", (e)=>{
 
 projectContainer.appendChild(addBtn);
 projectContainer.appendChild(f);
+
+*/

@@ -1,9 +1,21 @@
 /* styles.css */
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 button{
   margin: 0px;
   gap:0px;
 }
 
-.aboutTask{
+.aboutTask, .projectForm{
   display: none;
+}
+
+.styleProject{
+  margin: 30px;
+  padding: 20px;
+  padding-top: 0px;
+  border: 2px solid black;
 }
