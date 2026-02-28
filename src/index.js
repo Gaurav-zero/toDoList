@@ -29,26 +29,29 @@ projectForm.addEventListener("submit", (e)=>{
     let newProject= createProject(projectName.value);
     newProject.appendChild(newAddBtn);  
 
+    newAddBtn.addEventListener("click", (e)=>{
+        newProject.appendChild(f);
+        f.style.display="block";
+
+        f.addEventListener("submit", (e)=>{
+            e.preventDefault();
+            addNewTask(title.value, taskDesc.value, taskDate.value);
+            title.value="";
+            taskDesc.value="";
+            taskDate.value="";
+            displayTasks(newProject);
+            f.style.display="none";
+        });
+    });
+
+    projectName.value= "";
     projectForm.style.display= "none";
 });
 
-/** 
-addBtn.addEventListener("click", (e)=>{
-    f.style.display="block";
-});
 
 
-f.addEventListener("submit", (e)=>{
-        e.preventDefault();
-        addNewTask(title.value, taskDesc.value, taskDate.value);
-        title.value="";
-        taskDesc.value="";
-        taskDate.value="";
-        displayTasks();
-        f.style.display="none";
-});
 
-projectContainer.appendChild(addBtn);
-projectContainer.appendChild(f);
 
-*/
+
+
+

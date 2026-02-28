@@ -1,28 +1,28 @@
 import { toDoList } from "./todos.js";
 
 
-const table= document.querySelector("#table");
+const taskTable= document.createElement("table");
 
-export function displayTasks(){
-    let tableLength= table.rows.length;
+export function displayTasks(project){
+    let tableLength= taskTable.rows.length;
     for(let i=0; i<tableLength; ++i){
-        table.deleteRow(0);
+        taskTable.deleteRow(0);
     }
 
     for(let i=0; i<toDoList.length; ++i){
-        let row1= table.insertRow();
+        let row1= taskTable.insertRow();
         let cell0= row1.insertCell(0);
         let cell1= row1.insertCell(1);
 
-        let row2= table.insertRow();
+        let row2= taskTable.insertRow();
         let cell2= row2.insertCell(0);
         let cell3= row2.insertCell(1);
 
-        let row3= table.insertRow();
+        let row3= taskTable.insertRow();
         let cell4= row3.insertCell(0);
         let cell5= row3.insertCell(1);
 
-        let row4= table.insertRow();
+        let row4= taskTable.insertRow();
         let cell6= row4.insertCell(0);
         let cell7= row4.insertCell(1);
 
@@ -81,4 +81,6 @@ export function displayTasks(){
             thisRow4.parentNode.removeChild(thisRow4);
         });
     }
+
+    project.appendChild(taskTable);
 }
