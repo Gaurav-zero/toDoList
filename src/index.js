@@ -2,6 +2,7 @@ import "./styles.css";
 import {Todos, toDoList, addNewTask} from "./todos.js";
 import { displayTasks } from "./displayTasks.js";
 import { createProject } from "./createProject.js";
+import { appendTable } from "./displayTasks.js";
 
 const projectContainer= document.querySelector(".projectContainer");
 const addProjectBtn= document.querySelector(".addProject");
@@ -28,20 +29,21 @@ projectForm.addEventListener("submit", (e)=>{
 
     let newProject= createProject(projectName.value);
     newProject.appendChild(newAddBtn);  
+    appendTable(newProject);
 
     newAddBtn.addEventListener("click", (e)=>{
         newProject.appendChild(f);
         f.style.display="block";
+    });
 
-        f.addEventListener("submit", (e)=>{
-            e.preventDefault();
-            addNewTask(title.value, taskDesc.value, taskDate.value);
-            title.value="";
-            taskDesc.value="";
-            taskDate.value="";
-            displayTasks(newProject);
-            f.style.display="none";
-        });
+    f.addEventListener("submit", (e)=>{
+        e.preventDefault();
+        addNewTask(title.value, taskDesc.value, taskDate.value);
+        title.value="";
+        taskDesc.value="";
+        taskDate.value="";
+        displayTasks();
+        f.style.display="none";
     });
 
     projectName.value= "";

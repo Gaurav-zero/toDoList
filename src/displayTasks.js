@@ -3,11 +3,12 @@ import { toDoList } from "./todos.js";
 
 const taskTable= document.createElement("table");
 
-export function displayTasks(project){
-    let tableLength= taskTable.rows.length;
-    for(let i=0; i<tableLength; ++i){
-        taskTable.deleteRow(0);
-    }
+export function appendTable(project){
+    project.appendChild(taskTable);
+}
+
+export function displayTasks(){
+    taskTable.innerHTML="";
 
     for(let i=0; i<toDoList.length; ++i){
         let row1= taskTable.insertRow();
@@ -81,6 +82,4 @@ export function displayTasks(project){
             thisRow4.parentNode.removeChild(thisRow4);
         });
     }
-
-    project.appendChild(taskTable);
 }
