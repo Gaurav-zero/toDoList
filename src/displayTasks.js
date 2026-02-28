@@ -1,13 +1,6 @@
 import { toDoList } from "./todos.js";
 
-
-const taskTable= document.createElement("table");
-
-export function appendTable(project){
-    project.appendChild(taskTable);
-}
-
-export function displayTasks(){
+export function displayTasks(taskTable){
     taskTable.innerHTML="";
 
     for(let i=0; i<toDoList.length; ++i){
